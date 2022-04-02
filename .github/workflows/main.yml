@@ -1,0 +1,14 @@
+
+name: cppcheck
+
+on:
+  workflow_dispatch:
+jobs:
+  cppcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: install
+        run: sudo apt install -y cppcheck
+      - name: run
+        run: cppcheck . 1>/dev/null  --error-exitcode=-1
