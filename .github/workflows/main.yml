@@ -2,6 +2,7 @@
 name: cppcheck
 
 on:
+  push:
   workflow_dispatch:
 jobs:
   cppcheck:
@@ -11,4 +12,4 @@ jobs:
       - name: install
         run: sudo apt install -y cppcheck
       - name: run
-        run: cppcheck . 1>/dev/null  --error-exitcode=-1
+        run: cppcheck --enable=all --error-exitcode=-1 ./ 1>/dev/null
